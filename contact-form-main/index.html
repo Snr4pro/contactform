@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Contact form</title>
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: hsl(148, 38%, 91%);
+    height: 100vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #form {
+    width: 700px;
+    height: auto;
+    background-color: white;
+    margin: auto;
+    padding: 35px;
+    border-radius: 15px;
+  }
+
+  .name {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Karla';
+  }
+
+  #first input,
+  #last input {
+    width: 305px;
+    height: 45px;
+    border-radius: 7px;
+    outline: none;
+    border: 1px hsl(186, 15%, 59%) solid;
+    margin-top: 10px;
+    padding-left: 15px;
+  }
+
+  #first input:hover,
+  #last input:hover,
+  #email input:hover {
+    border: 2px solid hsl(169, 82%, 27%);
+    cursor: pointer;
+
+  }
+
+  #email {
+    font-family: 'Karla';
+    margin-top: 25px;
+  }
+
+  #email input {
+    width: 100%;
+    height: 45px;
+    border-radius: 7px;
+    outline: none;
+    border: 1px hsl(186, 15%, 59%) solid;
+    margin-top: 10px;
+    padding-left: 15px;
+  }
+
+  #query {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: last baseline;
+    font-family: 'Karla';
+    margin-top: 25px;
+  }
+
+
+  .radio-box {
+    width: 305px;
+    height: 45px;
+    border-radius: 7px;
+    outline: none;
+    border: 1px hsl(186, 15%, 59%) solid;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: 'Karla';
+  }
+
+  .radio-box:hover,
+  textarea:hover {
+    border: 2px solid hsl(169, 82%, 27%);
+    cursor: pointer;
+  }
+
+  .text-box {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    font-family: 'Karla';
+    margin-top: 25px;
+  }
+
+  textarea,
+  button {
+    width: 100%;
+    border-radius: 7px;
+    font-family: 'Karla';
+  }
+
+  textarea {
+    border: 1px hsl(186, 15%, 59%) solid;
+    height: 100px;
+    padding: 15px;
+  }
+
+  button {
+    height: 55px;
+    border: none;
+    background-color: hsl(169, 82%, 27%);
+    color: white;
+    font-size: 16px;
+    margin-top: 45px;
+  }
+
+  button:hover {
+    background-color: hsl(169, 75%, 17%);
+    cursor: pointer;
+  }
+
+  label {
+    margin-bottom: 10px;
+  }
+
+  .radio-box {
+    margin-top: 10px;
+  }
+
+  .radio-box input {
+    margin-left: 20px;
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 27px;
+    color: hsl(169, 75%, 17%);
+  }
+
+  .check {
+    margin-bottom: 0px;
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .text-box input {
+    width: 16px;
+    border-radius: 0px;
+    margin-left: 0px;
+  }
+
+  p::after {
+    content: "*";
+    color: hsl(169, 82%, 27%);
+  }
+
+  label::after {
+    content: "*";
+    color: hsl(169, 82%, 27%);
+  }
+
+  .enquiry::after {
+    content: "";
+  }
+
+  span {
+    display: block;
+    color: hsl(0, 66%, 56%);
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  .alert1 {
+    display: none;
+  }
+
+  .alert2 {
+    display: none;
+  }
+
+  .alert3 {
+    display: none;
+  }
+
+  .alert4 {
+    display: none;
+  }
+
+  .alert5 {
+    display: none;
+  }
+
+  .alert6 {
+    display: none;
+  }
+
+  .consent-box {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+
+  #check {
+    margin-right: 15px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .one {
+    border: 1px solid none;
+  }
+
+  .two {
+    border: 1px solid none;
+  }
+
+  .sent {
+    background-color: hsl(169, 75%, 17%);
+    text-align: left;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    width: 445px;
+    height: auto;
+    font-family: 'Karla';
+    margin: auto;
+    visibility: hidden;
+    transition: 0.3s;
+  }
+
+  .sent p {
+    margin-left: 20px;
+  }
+
+  .sent p::after {
+    content: "";
+  }
+
+  #messent {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+    font-weight: 700;
+    margin-left: 20px;
+  }
+
+  #messent img {
+    margin-right: -10px;
+  }
+
+  #reset {
+    display: none;
+    height: 55px;
+    border: none;
+    background-color: hsl(169, 82%, 27%);
+    color: white;
+    font-size: 16px;
+    margin-top: 45px;
+  }
+
+  #reset:hover {
+    background-color: hsl(169, 75%, 17%);
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    #form {
+      width: 85%;
+    }
+    #first input,
+    #last input {
+      max-width: 280px;
+    }
+    #query {
+      justify-content: center;
+    }
+    .name {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+
+  @media (max-width: 741px) {
+       #form {
+        padding-left: 20px;
+        padding-right: 20px;
+       }
+    }
+  
+  @media (max-width: 705px) {
+    #first input {
+      margin-bottom: 25px;
+    }
+    #email input {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 530px) {
+    .sent {
+      width: 85%;
+      padding-right: 20px;
+    }
+    .radio-box {
+      width: 100%;
+      justify-content: left;
+    }
+    .check {
+      margin-right: 0px;
+      font-size: 12px;
+    }
+    .consent-box {
+      justify-content: space-around;
+    }
+    #query {
+      display: block;
+    }
+  }
+
+  @media (max-width: 425px) {
+    #ge, #sr {
+      max-width: 385px;
+    }
+    #first input,
+    #last input {
+      width: 450px;
+    }
+    .name {
+      justify-content: center;
+    }
+  
+  }
+
+  @media (max-width: 375px) {
+    #first input,
+    #last input {
+      width: 100%;
+    }
+    .name {
+      display: block;
+    }
+  }
+
+
+</style>
+
+<body>
+  <div class="sent">
+    <div id="messent">
+      <img src="icon-success-check.svg">
+      <p>Message Sent!</p>
+    </div>
+    <p id="submes">Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
+  <form id="form" method="GET">
+    <h2>Contact Us</h2>
+    <div class="name">
+      <div id="first">
+        <p>First Name&nbsp;&nbsp;</p>
+        <input type="text" name="first name" id="fname" required>
+        <span class="alert1">This field is required</span>
+      </div>
+      <div id="last">
+        <p>Last Name&nbsp;&nbsp;</p>
+        <input type="text" name="last name" id="lname" required>
+        <span class="alert2">This field is required</span>
+      </div>
+    </div>
+    <div id="email">
+      <p>Email Address&nbsp;&nbsp;</p>
+      <input type="email" name="email address" id="address" required>
+      <span class="alert3">Please enter a valid email address</span>
+    </div>
+    <div id="query">
+      <div class="query-box">
+        <label for="query type" id="qtype">Query Type&nbsp;&nbsp;</label>
+        <div class="radio-box" id="ge">
+          <input type="radio" name="query type" id="general">
+          <p class="enquiry">General Enquiry</p>
+        </div>
+      </div>
+      <div class="radio-box" id="sr">
+        <input type="radio" name="query type" id="support">
+        <p class="enquiry">Support Request</p>
+      </div>
+      <span class="alert4">Please select a query type</span>
+    </div>
+    <div class="text-box">
+      <label for="message">Message&nbsp;&nbsp;</label>
+      <textarea name="message" row="5" col="25" id="mess" required></textarea>
+      <span class="alert5">This field is required</span>
+      <div class="consent-box">
+        <input type="checkbox" id="check" value="selected">
+        <p class="check">I consent to being contacted by the team&nbsp;
+        </p><span id="consent" class="alert6">To submit this form, please consent to being contacted</span>
+      </div>
+      <button type="submit">Submit</button>
+      <button type="submit" id="reset" onclick="resetPage()">Reset</button>
+    </div>
+  </form>
+  <span id="info"></span>
+</body>
+<script src="scripts.js"></script>
+
+</html>
